@@ -1,0 +1,916 @@
+/* Audio Player Styles */
+.audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.audio-player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.music-toggle {
+    background: none;
+    border: none;
+    color: #ff4d6d;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    background: rgba(255, 77, 109, 0.1);
+    transform: scale(1.1);
+}
+
+.music-toggle.playing {
+    animation: rotate 3s linear infinite;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+}
+
+.music-text {
+    font-family: 'Dancing Script', cursive;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ff4d6d'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") 12 12, auto;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Hearts Background Animation */
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in;
+    position: relative;
+}
+
+.title::after {
+    content: '✨';
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    animation: sparkle 1.5s ease-in-out infinite;
+    right: -2rem;
+    top: 0;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* Section Styles */
+section {
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff4d6d;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: linear-gradient(45deg, #ffd1dc, #ffb6c1);
+}
+
+/* Love Message Styles */
+.love-message {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #444;
+    white-space: pre-line;
+    font-family: 'Dancing Script', cursive;
+    text-align: left;
+    padding: 1rem;
+}
+
+/* Gallery Section */
+.gallery {
+    background: linear-gradient(45deg, #fff5f6, #ffe8e8);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery h2 {
+    font-size: 3.5rem;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gallery h2::before,
+.gallery h2::after {
+    content: '✨';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.gallery h2::before {
+    left: -3rem;
+}
+
+.gallery h2::after {
+    right: -3rem;
+}
+
+.gallery::before,
+.gallery::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: float-around 8s ease-in-out infinite;
+}
+
+.gallery::before {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.gallery::after {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 4s;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+}
+
+.photo-item::before {
+    content: '❤️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.photo-item:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.photo-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1);
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.photo-item:hover .photo-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add a lightbox effect for the gallery */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Love Quotes Section */
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.quote {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.quote:hover {
+    transform: translateY(-5px);
+}
+
+.quote i {
+    color: #ff4d6d;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.quote p {
+    font-size: 1.1rem;
+    color: #666;
+    font-family: 'Dancing Script', cursive;
+    line-height: 1.6;
+}
+
+/* Special Moments Section */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: #666;
+}
+
+.fa-heart {
+    color: #ff4d6d;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float-around {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(20px, -20px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, -40px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-20px, -20px) rotate(270deg);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Floating Elements */
+.floating-element {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    animation: float-up 15s linear infinite;
+    opacity: 0.6;
+}
+
+.balloon {
+    width: 40px;
+    height: 50px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    position: relative;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: #ff4d6d;
+}
+
+.heart {
+    font-size: 24px;
+    color: #ff4d6d;
+}
+
+/* Floating Animation */
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    
+    section {
+        padding: 2rem 1rem;
+    }
+    
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Love Tree Section */
+.love-quotes {
+    background: linear-gradient(45deg, #fff5f6, #ffe8e8);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.love-tree {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tree-trunk {
+    width: 40px;
+    height: 200px;
+    background: linear-gradient(to bottom, #8B4513, #654321);
+    position: relative;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.tree-heart {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    animation: pulse 1.5s infinite;
+}
+
+.tree-branches {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.branch {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.branch-left {
+    align-items: flex-end;
+    padding-right: 40px;
+}
+
+.branch-right {
+    align-items: flex-start;
+    padding-left: 40px;
+}
+
+.quote {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    max-width: 300px;
+    text-align: center;
+}
+
+.quote:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.quote i {
+    color: #ff4d6d;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.quote p {
+    font-size: 1.1rem;
+    color: #666;
+    font-family: 'Dancing Script', cursive;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.tree-roots {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.root-quote {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    max-width: 300px;
+    text-align: center;
+}
+
+.root-quote:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Add connecting lines */
+.branch-left .quote::after,
+.branch-right .quote::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: #ff4d6d;
+    opacity: 0.5;
+}
+
+.branch-left .quote::after {
+    right: -40px;
+    top: 50%;
+}
+
+.branch-right .quote::after {
+    left: -40px;
+    top: 50%;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Responsive Design for Tree */
+@media (max-width: 768px) {
+    .tree-branches {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .branch {
+        width: 100%;
+        padding: 0;
+    }
+
+    .branch-left,
+    .branch-right {
+        align-items: center;
+    }
+
+    .branch-left .quote::after,
+    .branch-right .quote::after {
+        display: none;
+    }
+
+    .tree-roots {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Love Story Section */
+.love-story {
+    background: linear-gradient(45deg, #fff5f6, #ffe8e8);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.story-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid rgba(255, 77, 109, 0.1);
+}
+
+.story-content::before,
+.story-content::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.story-content::before {
+    top: 20px;
+    left: 20px;
+}
+
+.story-content::after {
+    bottom: 20px;
+    right: 20px;
+}
+
+.story-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #444;
+    margin-bottom: 2rem;
+    text-align: justify;
+    position: relative;
+    z-index: 1;
+    animation: fade-in 2s ease-out;
+}
+
+.story-text br {
+    content: "";
+    display: block;
+    margin: 0.5em 0;
+}
+
+.story-signature {
+    text-align: right;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(255, 77, 109, 0.2);
+    position: relative;
+}
+
+.story-signature::before {
+    content: '💍';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    background: #fff;
+    padding: 0 10px;
+}
+
+.signature {
+    font-size: 2.2rem !important;
+    color: #ff4d6d !important;
+    margin-top: 1rem !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.signature::before,
+.signature::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 1rem;
+    opacity: 0.6;
+    animation: float-around 3s ease-in-out infinite;
+}
+
+.signature::before {
+    left: -2rem;
+    top: 50%;
+    animation-delay: 0s;
+}
+
+.signature::after {
+    right: -2rem;
+    top: 50%;
+    animation-delay: 1.5s;
+}
+
+/* Add floating hearts in the background */
+.love-story::before,
+.love-story::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: float-around 8s ease-in-out infinite;
+}
+
+.love-story::before {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.love-story::after {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 4s;
+}
+
+/* Responsive Design for Story Section */
+@media (max-width: 768px) {
+    .story-content {
+        padding: 2rem;
+    }
+
+    .story-text {
+        font-size: 1.2rem;
+    }
+
+    .signature {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* Add floating petals in the background */
+.petal {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Add hover effect to photos */
+.photo-item::after {
+    content: '❤️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 3rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.photo-item:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+}
+
+/* Add subtle glow to the love tree */
+.love-tree::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255,77,109,0.1) 0%, rgba(255,77,109,0) 70%);
+    z-index: -1;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Add subtle animation to the story text */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
